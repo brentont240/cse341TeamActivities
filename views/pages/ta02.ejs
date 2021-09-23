@@ -21,8 +21,14 @@
         <input type="text" name="username">
         <button type="submit">Add User</button>
       </form>
+      
+      <!-- sends an error if there are duplicates -->
+      <% if(!uniqueName) { %>
+        <p style="color:red; margin-top: 5px;"><strong>Error: name already exists!</strong></p>
+        <% } %>
 
       <div class="display-names">
+        <h3>User List:</h3>
           <ul>
             <!-- remeber javascript uses let! -->
               <% for(let i = 0; i < users.length;i++) { %>
@@ -36,11 +42,11 @@
         <input type="text" name="removeUsername">
         <button type="submit">Remove User</button>
       </form>
-      
-      <%   if(!nameFound){ %>
-        <p>Error: name not found</p>
-      <% } %>
 
+      <!-- sends an error if the name doesn't exist in the array -->
+      <% if(!nameFound) { %>
+      <p style="color:red; margin-top: 5px;"><strong>Error: name not found!</strong></p>
+      <% } %>
 
     </div>
  
