@@ -24,8 +24,9 @@
 
       <div class="display-names">
           <ul>
-              <% for(let user of users) { %>
-              <li> <%= user %></li>
+            <!-- remeber javascript uses let! -->
+              <% for(let i = 0; i < users.length;i++) { %>
+              <li> <%= users[i] %></li>
               <% }; %>
           </ul>
       </div> 
@@ -35,6 +36,10 @@
         <input type="text" name="removeUsername">
         <button type="submit">Remove User</button>
       </form>
+      
+      <%   if(!nameFound){ %>
+        <p>Error: name not found</p>
+      <% } %>
 
 
     </div>
