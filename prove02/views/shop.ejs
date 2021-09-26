@@ -1,0 +1,26 @@
+<% include ../includes/head.ejs %>
+<!-- <link rel="stylesheet" href="/css/main.css"> -->
+<link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+    <% include ../includes/navigation.ejs %>
+    <main>
+        <h1>Shop</h1> 
+        <div class="product-area">
+            <% if (prod.length > 0) { %>
+                <% for (let i = 0; i < prod.length; i++) { %>
+                <div class="product-item">
+                    <p id="product-title"><%=prod[i].prodTitle%></p>
+                    <p><strong>Price: </strong>$<%=prod[i].prodPrice%></p>
+                    <p><strong>Description: </strong><%=prod[i].prodDesc%></p>
+                    <form action="removeProduct" method="POST">
+                        <input type="hidden" name="removeProduct" value="<%=prod[i].prodTitle%>" readonly> 
+                        <button type="remove">Remove Product</button>
+                    </form>   
+                </div>
+                <% }; %> 
+            <% } %> 
+        </div>
+    </main>
+</body>
+</html>

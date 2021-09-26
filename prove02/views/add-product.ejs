@@ -1,0 +1,22 @@
+<% include ../includes/head.ejs %>
+<link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <% include ../includes/navigation.ejs %>
+    <main>
+        <div class="form-body">
+            <h1>Add a Product</h1> 
+            <form action="/add-product" method="POST">
+                <label for="prodTitle">Title: </label>
+                <input type="text" name="prodTitle" required>
+                <label for="prodPrice">Price: </label>
+                <input type="number" name="prodPrice">
+                <label for="prodDesc">Description: </label>
+                <textarea name="prodDesc" rows="4" cols="50"  placeholder="Write a short description of the product here"></textarea>
+                <!-- <input type="text" name="prodDesc"> -->
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
