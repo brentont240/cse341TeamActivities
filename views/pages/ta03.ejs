@@ -30,9 +30,8 @@
           </button>
         </div>
       </form>
-      <% if(!(page.includes("getItems"))) { %>
-        <% for (let item of items) { %>
 
+        <% for (let item of items) { %>
         <div style="padding-left: 30px">
           <p>Name: <%= item.name %></p>
           <p>Tag: <%= item.tags %></p>
@@ -41,23 +40,8 @@
           <p>Description: <%=item.description%></p>
         </div>
         <hr />
-
         <% } %>
-      <% }  else {%>
-        <!-- if the page has get items in the url, then filter by the tag -->
-        <% for (let item of items) { %>
 
-          <div style="padding-left: 30px">
-            <p>Name: <%= item.name %></p>
-            <p>Tag: <%= item.tags %></p>
-            <img src="<%= item.imageUrl %>" alt="<%= item.name %>" width="100px" />
-            <p>Price: <%=item.price%></p>
-            <p>Description: <%=item.description%></p>
-          </div>
-          <hr />
-  
-          <% } %>        
-      <% } %> 
     </div>
     <div class="container"></div>
   </body>

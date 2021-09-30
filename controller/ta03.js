@@ -23,7 +23,7 @@ exports.getItems = (req, res, next) => {
 };
 
 exports.getItemsFiltered = (req, res, next) => {
-    const itemTag = req.body.search;
+    const itemTag = req.body.search.toLowerCase(); //make this all lowercase!!! This needs to happen, or else it will not work!!!
     Item.findByTag(itemTag, items => {
       res.render('pages/ta03', {
         items: items, 
