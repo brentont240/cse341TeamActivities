@@ -49,3 +49,10 @@ router.post('/removeUsername', (req, res, next) => {
 
  
 module.exports = router;
+
+// can also use:
+// const index = userArray.indexOf(remUser);
+// if (index !== -1) {
+//   userArray.splice(index, 1);
+// }
+// for remove name!!
