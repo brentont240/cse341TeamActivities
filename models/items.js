@@ -40,9 +40,14 @@ module.exports = class Item {
   // }
 
   static findByTag(tag, cb) {
-    filteredItems.items = filteredItems.items.filter(
-      item => item.tag !== tag
-    );
+    getItemFromFile(items => {
+    // const filteredItems = items.filter(items => items.tag !== tag);
+    const filteredItems = items.filter( (tag)=>{
+      // return tag.toLowerCase().indexOf(items.tag.toLowerCase()) >= 0
+      return items.includes(tag)
+    });
+    console.log(filteredItems);
     cb(filteredItems);
+    });
   }
 };

@@ -11,7 +11,8 @@
     </div>
 
     <div class="container p-3">
-      <form action="/routes/getItems" method="POST">
+      <!-- <form action="/routes/getItems" method="POST"> -->
+        <form action="/ta03/getItems" method="POST">
         <div class="input-group">
           <div class="form-outline">
             <input
@@ -29,18 +30,34 @@
           </button>
         </div>
       </form>
-      <% for (let item of items) { %>
+      <% if(!(page.includes("getItems"))) { %>
+        <% for (let item of items) { %>
 
-      <div style="padding-left: 30px">
-        <p>Name: <%= item.name %></p>
-        <p>Tag: <%= item.tags %></p>
-        <img src="<%= item.imageUrl %>" alt="<%= item.name %>" width="100px" />
-        <p>Price: <%=item.price%></p>
-        <p>Description: <%=item.description%></p>
-      </div>
-      <hr />
+        <div style="padding-left: 30px">
+          <p>Name: <%= item.name %></p>
+          <p>Tag: <%= item.tags %></p>
+          <img src="<%= item.imageUrl %>" alt="<%= item.name %>" width="100px" />
+          <p>Price: <%=item.price%></p>
+          <p>Description: <%=item.description%></p>
+        </div>
+        <hr />
 
-      <% } %>
+        <% } %>
+      <% }  else {%>
+        <!-- if the page has get items in the url, then filter by the tag -->
+        <% for (let item of items) { %>
+
+          <div style="padding-left: 30px">
+            <p>Name: <%= item.name %></p>
+            <p>Tag: <%= item.tags %></p>
+            <img src="<%= item.imageUrl %>" alt="<%= item.name %>" width="100px" />
+            <p>Price: <%=item.price%></p>
+            <p>Description: <%=item.description%></p>
+          </div>
+          <hr />
+  
+          <% } %>        
+      <% } %> 
     </div>
     <div class="container"></div>
   </body>

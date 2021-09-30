@@ -15,7 +15,9 @@ exports.getItems = (req, res, next) => {
     res.render('pages/ta03', {
       items: items,
       pageTitle: 'All Items',
-      path: '/items'
+      page: req.url,
+      path: 'ta03'
+      // path: '/items'
     });
   });
 };
@@ -26,7 +28,9 @@ exports.getItemsFiltered = (req, res, next) => {
       res.render('pages/ta03', {
         items: items, 
         pageTitle: items.title,
-        path: '/getItems'
+        page: req.url, //to see if they searched or not
+        path: 'ta03'
+        // path: '/getItems'
       });
     });
   };
