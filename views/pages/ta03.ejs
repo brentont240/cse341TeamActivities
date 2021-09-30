@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <% include ../includes/header.ejs %>
+  </head>
 
-<head>
-  <% include ../includes/header.ejs %>
-</head>
-
-<body>
-  <% include ../includes/nav.ejs %>
+  <body>
+    <% include ../includes/nav.ejs %>
     <div class="jumbotron text-center">
-      <div class="container">
-        <h1>
-          <%= title %>
-        </h1>
-        <p>This is the placeholder for Team Activity 03</p>
+      <h1>TEST</h1>
+    </div>
+
+    <div class="container p-3">
+      <form action="/routes/getItems" method="POST">
+        <div class="input-group">
+          <div class="form-outline">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              class="form-control"
+              placeholder="Search..."
+            />
+            
+            <label for="search" class="form-label">Search</label>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </form>
+      <% for (let item of items) { %>
+
+      <div style="padding-left: 30px">
+        <p>Name: <%= item.name %></p>
+        <p>Tag: <%= item.tags %></p>
+        <img src="<%= item.imageUrl %>" alt="<%= item.name %>" width="100px" />
+        <p>Price: <%=item.price%></p>
+        <p>Description: <%=item.description%></p>
       </div>
+      <hr />
+
+      <% } %>
     </div>
-    <div class="container">
-
-    </div>
-
-
-</body>
-
+    <div class="container"></div>
+  </body>
 </html>
